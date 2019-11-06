@@ -22,7 +22,7 @@ class News_Headlines:
     s = BeautifulSoup(r, 'html.parser')
     s = s.find_all(class_ = 'post-block__title__link')
     s = s[6]
-    self.tech_headline = [s.text.strip(), s['href']]
+    return [s.text.strip(), s['href']]
 
   def business_news(self):
     r = requests.get(self.business)
@@ -35,7 +35,7 @@ class News_Headlines:
     link = s.find('a')  
     link = link['href'].strip()
     link = 'https://www.reuters.com' + link
-    self.business_headline = [headline, link]
+    return [headline, link]
 
   def political_news(self):
     r = requests.get(self.political)
@@ -44,7 +44,8 @@ class News_Headlines:
     s = s.find(class_ = 'headline heading-3 heading-content margin-8-bottom media-heading')
     headline = s.text.strip()
     link = s.find('a')['href'].strip()
-    self.political_headline = [headline, link]
+    link = 'https://time.com' + link
+    return [headline, link]
 
   def US_CA_news(self):
     r = requests.get(self.US_CA)
@@ -54,7 +55,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.US_CA_headline = [headline, link]
+    return [headline, link]
 
   def ME_news(self):
     r = requests.get(self.ME)
@@ -64,7 +65,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.ME_headline = [headline, link]
+    return [headline, link]
 
   def EU_news(self):
     r = requests.get(self.EU)
@@ -74,7 +75,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.EU_headline = [headline, link]
+    return [headline, link]
 
   def UK_news(self):
     r = requests.get(self.UK)
@@ -84,7 +85,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.UK_headline = [headline, link]
+    return [headline, link]
 
   def Asia_news(self):
     r = requests.get(self.Asia)
@@ -94,7 +95,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.Asia_headline = [headline, link]
+    return [headline, link]
 
   def India_news(self):
     r = requests.get(self.India)
@@ -104,7 +105,7 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.India_headline = [headline, link]
+    return [headline, link]
 
   def world_news(self):
     r = requests.get(self.world)
@@ -114,4 +115,4 @@ class News_Headlines:
     headline = s.text.strip()
     link = s['href']
     link = 'https://www.bbc.com' + link
-    self.world_headline = [headline, link]
+    return [headline, link]
