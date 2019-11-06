@@ -21,4 +21,4 @@ def index():
                     ME_link = ME[1], EU = EU[0], EU_link = EU[1], UK = UK[0], UK_link = [1], Asia = Asia[0], Asia_link = Asia[1],
                     India = India[0], India_link = India[1], world = world[0], world_link = world[1])
 
-app.run()
+app.run('0.0.0.0')
